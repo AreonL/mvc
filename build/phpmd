@@ -1,1 +1,1 @@
-C:\Users\Anxiety\dbwebb-kurser\mvc\me\game\src\Router\Router.php:24	The method dispatch() has a Cyclomatic Complexity of 31. The configured cyclomatic complexity threshold is 10.
+C:\Users\Anxiety\dbwebb-kurser\mvc\me\game\src\Router\Router.php:23	The method dispatch() has a Cyclomatic Complexity of 31. The configured cyclomatic complexity threshold is 10.

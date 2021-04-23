@@ -117,5 +117,3 @@ $win = $win ?? null;
     <!-- End turn -->
     <p>End turn</p>
 <?php endif; ?>
-
-

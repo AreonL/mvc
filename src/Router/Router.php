@@ -3,7 +3,8 @@
 declare(strict_types=1);
 
 namespace Mos\Router;
-// namespace AreonL\Dice;
+
+use AreonL\Dice\Game;
 
 use function Mos\Functions\{
     destroySession,
@@ -13,8 +14,6 @@ use function Mos\Functions\{
     sendResponse,
     url
 };
-
-use AreonL\Dice\Game;
 
 /**
  * Class Router.
