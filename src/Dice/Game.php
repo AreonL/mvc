@@ -1,4 +1,5 @@
 <?php
+// Testing
 
 declare(strict_types=1);
 
@@ -16,7 +17,6 @@ use function Mos\Functions\{
     sendResponse,
     url
 };
-
 /**
  * Class Game.
  */
