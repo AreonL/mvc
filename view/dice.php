@@ -19,6 +19,8 @@ $output = $output ?? null;
 $gh = $gh ?? null;
 $graphic = $graphic ?? null;
 
+$end = $_SESSION["output"] ?? null;
+
 $pScore = $_SESSION["pScore"] ?? null;
 $cScore = $_SESSION["cScore"] ?? null;
 $getComputer = $getComputer ?? null;
@@ -92,7 +94,7 @@ $win = $win ?? null;
     </form>
     <?php endif; ?>
 
-<?php elseif ($_SESSION["output"] !== "end") : ?>
+<?php elseif ($end !== "end") : ?>
     <!-- Playgame -->
 <p>Tärningar: <?= $dices ?></p>
 <p><?= $dh ?></p>
@@ -115,5 +117,3 @@ $win = $win ?? null;
     <!-- End turn -->
     <p>End turn</p>
 <?php endif; ?>
-
-

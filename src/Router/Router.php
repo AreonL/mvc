@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mos\Router;
 
+use AreonL\Dice\Game;
+
 use function Mos\Functions\{
     destroySession,
     redirectTo,
@@ -76,7 +78,7 @@ class Router
             $redo = $_SESSION["redo"] ?? null;
             $reset = $_SESSION["reset"] ?? null;
 
-            $callable = new \AreonL\Dice\Game();
+            $callable = new Game();
 
             if ($reset) :
                 $callable->setUp();
@@ -87,7 +89,7 @@ class Router
                 $callable->end();
             elseif ($dices !== null) :
                 $callable->playGame();
-            else :
+            elseif ($redo == null) :
                 $callable->setUp();
             endif;
 
