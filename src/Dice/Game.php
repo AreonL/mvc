@@ -1,6 +1,5 @@
 <?php
-// Testing
-// still testing
+
 declare(strict_types=1);
 
 namespace AreonL\Dice;
@@ -17,6 +16,9 @@ use function Mos\Functions\{
     sendResponse,
     url
 };
+
+//this will change everything
+
 /**
  * Class Game.
  */
