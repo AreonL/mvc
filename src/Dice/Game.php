@@ -10,7 +10,7 @@ use AreonL\Dice\{
     DiceHand,
     DiceGraphic
 };
-
+// new
 use function Mos\Functions\{
     redirectTo,
     renderView,
