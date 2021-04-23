@@ -1,6 +1,6 @@
 <?php
-// Testing
-// still testing
+
+// kmom01
 declare(strict_types=1);
 
 namespace AreonL\Dice;
@@ -10,13 +10,14 @@ use AreonL\Dice\{
     DiceHand,
     DiceGraphic
 };
-// new
+
 use function Mos\Functions\{
     redirectTo,
     renderView,
     sendResponse,
     url
 };
+
 /**
  * Class Game.
  */
@@ -29,13 +30,11 @@ class Game
             "message" => "Kör tills du får vill eller 21, över så förlorar du!",
             "output" => $_SESSION["output"] ?? null,
         ];
-
         $_SESSION["sum"] = (int)0;
         $_SESSION["win"] = null;
         $_SESSION["lose"] = null;
         $_SESSION["pScore"] = 0;
         $_SESSION["cScore"] = 0;
-
         $body = renderView("layout/dice.php", $data);
         sendResponse($body);
     }
@@ -45,7 +44,6 @@ class Game
         $data = [
             "dices" => $_SESSION["dices"] ?? null,
         ];
-
         if (!$_SESSION["win"] and !$_SESSION["lose"]) :
             $diceHand = new DiceHand();
             for ($i = 0; $i < (int)$_SESSION["dices"]; $i++) {
@@ -54,8 +52,7 @@ class Game
             $diceHand->roll();
             $data["dh"] = $diceHand->getHand();
             $_SESSION["sum"] += (int)$diceHand->getSum();
-
-            // Check player sum after roll
+        // Check player sum after roll
             if ($_SESSION["sum"] == 21) {
                 $data = [
                     "win" => "win",
@@ -63,12 +60,11 @@ class Game
                 $_SESSION["pScore"] += 1;
             } elseif ($_SESSION["sum"] > 21) {
                 $data = [
-                    "lose" => "lose",
+                "lose" => "lose",
                 ];
                 $_SESSION["cScore"] += 1;
             }
         endif;
-
         $body = renderView("layout/dice.php", $data);
         sendResponse($body);
     }
@@ -93,7 +89,6 @@ class Game
             $data["getComputer"] .= $diceHand->getComputer();
             $this->sum += (int)$diceHand->getSum();
             $data["computerSum"] += (int)$diceHand->getSum();
-
             if (
                 $this->sum == $_SESSION["sum"] or $this->sum == 21
                 or ($this->sum > $_SESSION["sum"] and $this->sum < 21)
@@ -119,19 +114,12 @@ class Game
             "message" => "Kör tills du får vill eller 21, över så förlorar du!",
             "output" => $_SESSION["output"] ?? null,
         ];
-
         $_SESSION["sum"] = (int)0;
         $_SESSION["win"] = null;
         $_SESSION["lose"] = null;
         $_SESSION["redo"] = null;
         $_SESSION["output"] = null;
-
         $body = renderView("layout/dice.php", $data);
         sendResponse($body);
-    }
-
-    public function oneOrTwo(string $output): void
-    {
-        $data["output"] = $output;
     }
 }
