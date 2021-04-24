@@ -1,0 +1,56 @@
+
+FILE: ...\Users\Anxiety\dbwebb-kurser\mvc\me\game\src\Controller\ControllerBase.php
+--------------------------------------------------------------------------------
+FOUND 6 ERRORS AFFECTING 4 LINES
+--------------------------------------------------------------------------------
+ 19 | ERROR | [x] Incorrect spacing between argument "$status" and equals sign;
+    |       |     expected 1 but found 0
+ 19 | ERROR | [x] Incorrect spacing between default value and equals sign for
+    |       |     argument "$status"; expected 1 but found 0
+ 21 | ERROR | [x] The closing parenthesis and the opening brace of a multi-line
+    |       |     function declaration must be on the same line
+ 31 | ERROR | [x] Incorrect spacing between argument "$status" and equals sign;
+    |       |     expected 1 but found 0
+ 31 | ERROR | [x] Incorrect spacing between default value and equals sign for
+    |       |     argument "$status"; expected 1 but found 0
+ 33 | ERROR | [x] The closing parenthesis and the opening brace of a multi-line
+    |       |     function declaration must be on the same line
+--------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 6 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------------
+
+
+FILE: ...Users\Anxiety\dbwebb-kurser\mvc\me\game\src\Controller\ControllerTrait.php
+--------------------------------------------------------------------------------
+FOUND 6 ERRORS AFFECTING 4 LINES
+--------------------------------------------------------------------------------
+ 19 | ERROR | [x] Incorrect spacing between argument "$status" and equals sign;
+    |       |     expected 1 but found 0
+ 19 | ERROR | [x] Incorrect spacing between default value and equals sign for
+    |       |     argument "$status"; expected 1 but found 0
+ 21 | ERROR | [x] The closing parenthesis and the opening brace of a multi-line
+    |       |     function declaration must be on the same line
+ 31 | ERROR | [x] Incorrect spacing between argument "$status" and equals sign;
+    |       |     expected 1 but found 0
+ 31 | ERROR | [x] Incorrect spacing between default value and equals sign for
+    |       |     argument "$status"; expected 1 but found 0
+ 33 | ERROR | [x] The closing parenthesis and the opening brace of a multi-line
+    |       |     function declaration must be on the same line
+--------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 6 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------------
+
+
+FILE: C:\Users\Anxiety\dbwebb-kurser\mvc\me\game\src\Dice\Game.php
+--------------------------------------------------------------------------------
+FOUND 2 ERRORS AFFECTING 2 LINES
+--------------------------------------------------------------------------------
+  1 | ERROR | [x] End of line character is invalid; expected "\n" but found
+    |       |     "\r\n"
+ 19 | ERROR | [x] Header blocks must be separated by a single blank line
+--------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------------
+
+Time: 440ms; Memory: 8MB
+
