@@ -19,7 +19,6 @@ class Debug
     public function __invoke(): ResponseInterface
     {
         $body = renderView("layout/debug.php");
-
         // Create and return the response
         $psr17Factory = new Psr17Factory();
         return $psr17Factory

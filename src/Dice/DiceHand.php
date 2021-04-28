@@ -13,6 +13,8 @@ class DiceHand
     private int $numberDices = 0;
     private int $sum;
     private string $text;
+    private int $diceNumber;
+    // private array $trueDice;
 
     public function addDice(DiceInterface $dice)
     {
@@ -27,6 +29,20 @@ class DiceHand
         for ($i = 0; $i < $this->numberDices; $i++) {
             $this->sum += $this->dices[$i]->roll();
             $this->text .= $this->dices[$i]->getLastRoll() . ", ";
+        }
+    }
+
+    public function rollTrue($trueDice): void
+    {
+        // echo json_encode($trueDice);
+        $this->sum = 0;
+        $this->text = "";
+        for ($i = 0; $i < $this->numberDices; $i++) {
+            if ($trueDice[$i]) :
+                $this->dices[$i]->roll();
+                $this->text .= $this->dices[$i]->getLastRoll() . ", ";
+            $this->sum += $this->dices[$i]->getLastRoll();
+            endif;
         }
     }
 
@@ -51,6 +67,19 @@ class DiceHand
 
     public function getSum(): int
     {
+        return $this->sum;
+    }
+
+    public function getSumNumber($number): int
+    {
+        $this->sum = 0;
+        $this->diceNumber = 0;
+        for ($i = 0; $i < $this->numberDices; $i++) {
+            $this->diceNumber = $this->dices[$i]->getLastRoll();
+            if ($this->diceNumber == $number) :
+                $this->sum += $this->diceNumber;
+            endif;
+        }
         return $this->sum;
     }
 }

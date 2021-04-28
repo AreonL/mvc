@@ -55,22 +55,22 @@ switch ($routeInfo[0]) {
         $response = (new Error())->do405($allowedMethods);
         break;
 
+// https://discord.com/channels/118332969004957705/819962907688304670/834174397593813062 fixed this for me
+case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
+    $allowedMethods = $routeInfo[1];
+    $response = (new Error())->do405($allowedMethods);
+    break;
+
     case FastRoute\Dispatcher::FOUND:
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
-
-        if (is_callable($handler)) {
-            if (is_array($handler)
-                && is_string($handler[0])
-                && class_exists($handler[0])
-            ) {
+        if (is_array($handler)) {
+            if (class_exists($handler[0]) && in_array($handler[1], get_class_methods($handler[0]))) {
                 $obj = new $handler[0]();
                 $action = $handler[1];
                 $response = $obj->$action();
-            } else {
-                $response = call_user_func_array($handler, $vars);
             }
-        } else if (is_string($handler) && class_exists($handler)) {
+        } elseif (is_string($handler) && class_exists($handler)) {
             $rc = new \ReflectionClass($handler);
             if ($rc->hasMethod("__invoke")) {
                 $obj = new $handler;
@@ -79,6 +79,31 @@ switch ($routeInfo[0]) {
         }
         break;
 }
+
+//     case FastRoute\Dispatcher::FOUND:
+//         $handler = $routeInfo[1];
+//         $vars = $routeInfo[2];
+
+//         if (is_callable($handler)) {
+//             if (is_array($handler)
+//                 && is_string($handler[0])
+//                 && class_exists($handler[0])
+//             ) {
+//                 $obj = new $handler[0]();
+//                 $action = $handler[1];
+//                 $response = $obj->$action();
+//             } else {
+//                 $response = call_user_func_array($handler, $vars);
+//             }
+//         } else if (is_string($handler) && class_exists($handler)) {
+//             $rc = new \ReflectionClass($handler);
+//             if ($rc->hasMethod("__invoke")) {
+//                 $obj = new $handler;
+//                 $response = $obj();
+//             }
+//         }
+//         break;
+// }
 
 // Send the reponse
 if (is_null($response)) {

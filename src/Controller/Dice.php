@@ -9,20 +9,20 @@ use Psr\Http\Message\ResponseInterface;
 use function Mos\Functions\renderView;
 
 /**
- * Controller for the Index route.
+ * Controller for the dice route.
  */
-class Index //extends ControllerBase
+class Dice //extends ControllerBase
 {
     use ControllerTrait;
 
     public function __invoke(): ResponseInterface
     {
         $data = [
-            "header" => "Index page",
-            "message" => "Hello, this is the Index page, rendered as a layout.",
+            "header" => "dice page",
+            "message" => "Hello, this is the dice page, rendered as a layout.",
         ];
 
-        $body = renderView("layout/page.php", $data);
+        $body = renderView("layout/dice.php", $data);
 
         return $this->response($body);
     }
