@@ -10,7 +10,10 @@ declare(strict_types=1);
 
 use FastRoute\RouteCollector;
 
-$router = $router ?? null;
+$router = $router ?? new RouteCollector(
+    new \FastRoute\RouteParser\Std(),
+    new \FastRoute\DataGenerator\MarkBased()
+);
 
 $router->addRoute("GET", "/test", function () {
     // A quick and dirty way to test the router or the request.
@@ -20,7 +23,6 @@ $router->addRoute("GET", "/test", function () {
 $router->addRoute("GET", "/", "\Mos\Controller\Index");
 $router->addRoute("GET", "/debug", "\Mos\Controller\Debug");
 $router->addRoute("GET", "/twig", "\Mos\Controller\TwigView");
-$router->addRoute("GET", "/dice", "\Mos\Controller\Dice");
 
 $router->addGroup("/session", function (RouteCollector $router) {
     $router->addRoute("GET", "", ["\Mos\Controller\Session", "index"]);
@@ -34,9 +36,4 @@ $router->addGroup("/some", function (RouteCollector $router) {
 $router->addGroup("/form", function (RouteCollector $router) {
     $router->addRoute("GET", "/view", ["\Mos\Controller\Form", "view"]);
     $router->addRoute("POST", "/process", ["\Mos\Controller\Form", "process"]);
-});
-
-$router->addGroup("/yatzy", function (RouteCollector $router) {
-    $router->addRoute("GET", "", ["\Mos\Controller\Yatzy", "index"]);
-    $router->addRoute("POST", "/game", ["\Mos\Controller\Yatzy", "game"]);
 });

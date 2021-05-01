@@ -1,9 +1,11 @@
 PHPUnit 9.5.4 by Sebastian Bergmann and contributors.
 
-........                                                            8 / 8 (100%)
+.........................                                         25 / 25 (100%)
 
-Time: 00:00.074, Memory: 10.00 MB
+Time: 00:01.399, Memory: 20.00 MB
 
-OK (8 tests, 19 assertions)
+OK (25 tests, 26 assertions)
 
-Generating code coverage report in Clover XML format ... Interface 'AreonL\Dice\DiceInterface' not found
+Generating code coverage report in Clover XML format ... 5 ⚁ 6 (cheating) <br>5, 2, 6 = 13done [00:00.122]
+
+Generating code coverage report in HTML format ... done [00:00.126]

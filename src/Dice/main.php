@@ -30,4 +30,4 @@ $hand->addDice(new DiceGraphic());
 $hand->addDice(new DiceCheat());
 
 $hand->roll();
-echo $hand->getHand();
+// echo $hand->getHand();
