@@ -19,10 +19,10 @@ use Twig\Environment;
  */
 function getRoutePath(): string
 {
-    $offset = strlen(dirname($_SERVER["SCRIPT_NAME"]));
-    $path   = substr($_SERVER["REQUEST_URI"], $offset);
+    $offset = strlen(dirname($_SERVER["SCRIPT_NAME"] ?? null));
+    $path   = substr($_SERVER["REQUEST_URI"] ?? "", $offset);
 
-    return $path;
+    return $path ? $path : "";
 }
 
 
