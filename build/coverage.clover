@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1619900502">
-  <project timestamp="1619900502">
+<coverage generated="1619903187">
+  <project timestamp="1619903187">
     <file name="C:\Users\Anxiety\dbwebb-kurser\mvc\me\game\config\bootstrap.php">
       <line num="10" type="stmt" count="1"/>
       <line num="11" type="stmt" count="1"/>
@@ -69,10 +69,10 @@
       <class name="Mos\Controller\ControllerTrait" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="8" coveredelements="8"/>
       </class>
-      <line num="15" type="method" name="response" visibility="protected" complexity="1" crap="1" count="2"/>
-      <line num="19" type="stmt" count="2"/>
-      <line num="22" type="stmt" count="2"/>
-      <line num="23" type="stmt" count="2"/>
+      <line num="15" type="method" name="response" visibility="protected" complexity="1" crap="1" count="3"/>
+      <line num="19" type="stmt" count="3"/>
+      <line num="22" type="stmt" count="3"/>
+      <line num="23" type="stmt" count="3"/>
       <line num="27" type="method" name="redirect" visibility="protected" complexity="1" crap="1" count="1"/>
       <line num="31" type="stmt" count="1"/>
       <line num="34" type="stmt" count="1"/>
@@ -187,18 +187,18 @@
     </file>
     <file name="C:\Users\Anxiety\dbwebb-kurser\mvc\me\game\src\Controller\Yatzy.php">
       <class name="Mos\Controller\Yatzy" namespace="global">
-        <metrics complexity="29" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="89" coveredstatements="0" elements="98" coveredelements="0"/>
+        <metrics complexity="29" methods="9" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="89" coveredstatements="19" elements="98" coveredelements="20"/>
       </class>
-      <line num="29" type="method" name="index" visibility="public" complexity="3" crap="12" count="0"/>
-      <line num="31" type="stmt" count="0"/>
-      <line num="32" type="stmt" count="0"/>
-      <line num="33" type="stmt" count="0"/>
+      <line num="29" type="method" name="index" visibility="public" complexity="3" crap="3.10" count="1"/>
+      <line num="31" type="stmt" count="1"/>
+      <line num="32" type="stmt" count="1"/>
+      <line num="33" type="stmt" count="1"/>
       <line num="34" type="stmt" count="0"/>
-      <line num="35" type="stmt" count="0"/>
+      <line num="35" type="stmt" count="1"/>
       <line num="36" type="stmt" count="0"/>
-      <line num="38" type="stmt" count="0"/>
-      <line num="40" type="stmt" count="0"/>
-      <line num="41" type="stmt" count="0"/>
+      <line num="38" type="stmt" count="1"/>
+      <line num="40" type="stmt" count="1"/>
+      <line num="41" type="stmt" count="1"/>
       <line num="44" type="method" name="checkAllBoxes" visibility="public" complexity="7" crap="56" count="0"/>
       <line num="46" type="stmt" count="0"/>
       <line num="47" type="stmt" count="0"/>
@@ -221,19 +221,19 @@
       <line num="70" type="stmt" count="0"/>
       <line num="71" type="stmt" count="0"/>
       <line num="72" type="stmt" count="0"/>
-      <line num="75" type="method" name="setup" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="78" type="stmt" count="0"/>
-      <line num="81" type="stmt" count="0"/>
-      <line num="82" type="stmt" count="0"/>
-      <line num="83" type="stmt" count="0"/>
-      <line num="84" type="stmt" count="0"/>
-      <line num="85" type="stmt" count="0"/>
-      <line num="86" type="stmt" count="0"/>
-      <line num="87" type="stmt" count="0"/>
-      <line num="88" type="stmt" count="0"/>
-      <line num="89" type="stmt" count="0"/>
-      <line num="90" type="stmt" count="0"/>
-      <line num="91" type="stmt" count="0"/>
+      <line num="75" type="method" name="setup" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="78" type="stmt" count="1"/>
+      <line num="81" type="stmt" count="1"/>
+      <line num="82" type="stmt" count="1"/>
+      <line num="83" type="stmt" count="1"/>
+      <line num="84" type="stmt" count="1"/>
+      <line num="85" type="stmt" count="1"/>
+      <line num="86" type="stmt" count="1"/>
+      <line num="87" type="stmt" count="1"/>
+      <line num="88" type="stmt" count="1"/>
+      <line num="89" type="stmt" count="1"/>
+      <line num="90" type="stmt" count="1"/>
+      <line num="91" type="stmt" count="1"/>
       <line num="94" type="method" name="firstRoll" visibility="public" complexity="2" crap="6" count="0"/>
       <line num="97" type="stmt" count="0"/>
       <line num="101" type="stmt" count="0"/>
@@ -287,7 +287,7 @@
       <line num="180" type="stmt" count="0"/>
       <line num="181" type="stmt" count="0"/>
       <line num="183" type="stmt" count="0"/>
-      <metrics loc="184" ncloc="173" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="89" coveredstatements="0" elements="98" coveredelements="0"/>
+      <metrics loc="184" ncloc="173" classes="1" methods="9" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="89" coveredstatements="19" elements="98" coveredelements="20"/>
     </file>
     <file name="C:\Users\Anxiety\dbwebb-kurser\mvc\me\game\src\Dice\Dice.php">
       <class name="AreonL\Dice\Dice" namespace="global">
@@ -477,8 +477,7 @@
       <line num="29" type="stmt" count="0"/>
       <line num="30" type="stmt" count="0"/>
       <line num="32" type="stmt" count="0"/>
-      <line num="33" type="stmt" count="0"/>
-      <metrics loc="33" ncloc="26" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="7" coveredelements="0"/>
+      <metrics loc="33" ncloc="25" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="6" coveredelements="0"/>
     </file>
     <file name="C:\Users\Anxiety\dbwebb-kurser\mvc\me\game\src\Guess\Guess.php">
       <class name="Mos\Guess\Guess" namespace="global">
@@ -597,12 +596,12 @@
       <line num="22" type="stmt" count="2"/>
       <line num="23" type="stmt" count="2"/>
       <line num="25" type="stmt" count="2"/>
-      <line num="42" type="stmt" count="8"/>
-      <line num="44" type="stmt" count="8"/>
-      <line num="45" type="stmt" count="8"/>
-      <line num="46" type="stmt" count="8"/>
-      <line num="47" type="stmt" count="8"/>
-      <line num="49" type="stmt" count="8"/>
+      <line num="42" type="stmt" count="9"/>
+      <line num="44" type="stmt" count="9"/>
+      <line num="45" type="stmt" count="9"/>
+      <line num="46" type="stmt" count="9"/>
+      <line num="47" type="stmt" count="9"/>
+      <line num="49" type="stmt" count="9"/>
       <line num="66" type="stmt" count="2"/>
       <line num="67" type="stmt" count="2"/>
       <line num="69" type="stmt" count="2"/>
@@ -610,10 +609,10 @@
       <line num="71" type="stmt" count="1"/>
       <line num="76" type="stmt" count="1"/>
       <line num="79" type="stmt" count="2"/>
-      <line num="124" type="stmt" count="10"/>
-      <line num="136" type="stmt" count="11"/>
-      <line num="138" type="stmt" count="11"/>
-      <line num="139" type="stmt" count="11"/>
+      <line num="124" type="stmt" count="11"/>
+      <line num="136" type="stmt" count="12"/>
+      <line num="138" type="stmt" count="12"/>
+      <line num="139" type="stmt" count="12"/>
       <line num="142" type="stmt" count="1"/>
       <line num="143" type="stmt" count="1"/>
       <line num="146" type="stmt" count="1"/>
@@ -653,6 +652,6 @@
       <line num="213" type="stmt" count="2"/>
       <metrics loc="213" ncloc="139" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="57" coveredstatements="54" elements="57" coveredelements="54"/>
     </file>
-    <metrics files="27" loc="1496" ncloc="1246" classes="19" methods="53" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="458" coveredstatements="107" elements="511" coveredelements="119"/>
+    <metrics files="27" loc="1496" ncloc="1245" classes="19" methods="53" coveredmethods="13" conditionals="0" coveredconditionals="0" statements="457" coveredstatements="126" elements="510" coveredelements="139"/>
   </project>
 </coverage>

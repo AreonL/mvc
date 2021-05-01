@@ -8,17 +8,17 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * Test cases for the controller Yatzy.
+ * Test cases for the controller Index.
  */
-class ControllerYatzyTest extends TestCase
+class ControllerIndexTest extends TestCase
 {
     /**
      * Try to create the controller class.
      */
     public function testCreateTheControllerClass()
     {
-        $controller = new Yatzy();
-        $this->assertInstanceOf("\Mos\Controller\Yatzy", $controller);
+        $controller = new Index();
+        $this->assertInstanceOf("\Mos\Controller\Index", $controller);
     }
 
     /**
@@ -26,10 +26,10 @@ class ControllerYatzyTest extends TestCase
      */
     public function testControllerReturnsResponse()
     {
-        $controller = new Yatzy();
+        $controller = new Index();
 
         $exp = "\Psr\Http\Message\ResponseInterface";
-        $res = $controller->index();
+        $res = $controller();
         $this->assertInstanceOf($exp, $res);
     }
 }
