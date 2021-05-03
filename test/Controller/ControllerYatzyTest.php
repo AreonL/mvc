@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace Mos\Controller;
 
+use AreonL\Dice\{
+    Dice,
+    DiceHand,
+    DiceGraphic
+};
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 
@@ -24,12 +29,129 @@ class ControllerYatzyTest extends TestCase
     /**
      * Check that the controller returns a response.
      */
-    public function testControllerReturnsResponse()
+    public function testIndexReturnsResponse()
     {
         $controller = new Yatzy();
 
         $exp = "\Psr\Http\Message\ResponseInterface";
         $res = $controller->index();
         $this->assertInstanceOf($exp, $res);
+    }
+
+    /**
+     * Check that the controller returns a response.
+     */
+    public function testIndexFirstRollResponse()
+    {
+        $controller = new Yatzy();
+
+        $_SESSION = [
+            "firstRoll" => "firstRoll"
+        ];
+
+        $exp = "\Psr\Http\Message\ResponseInterface";
+        $res = $controller->index();
+        $this->assertInstanceOf($exp, $res);
+    }
+
+    /**
+     * Check that the controller returns a response.
+     */
+    public function testIndexRollResponse()
+    {
+        $controller = new Yatzy();
+
+        $_SESSION = [
+            "roll" => "roll"
+        ];
+
+        $exp = "\Psr\Http\Message\ResponseInterface";
+        $res = $controller->index();
+        $this->assertInstanceOf($exp, $res);
+    }
+
+    /**
+     * Check that the controller returns a response.
+     */
+    public function testCheckAllBoxes()
+    {
+        $controller = new Yatzy();
+
+        $_SESSION = [
+            "select1" => "select1"
+        ];
+
+        $exp = false;
+        $res = $controller->checkAllBoxes();
+        $this->assertEquals($exp, $res);
+
+        $_SESSION = [
+            "select1" => "select1",
+            "select2" => "select2",
+            "select3" => "select3",
+            "select4" => "select4",
+            "select5" => "select5",
+            "select6" => "select6"
+        ];
+
+        $res = $controller->checkAllBoxes();
+        $this->assertNotEquals($exp, $res);
+    }
+
+        /**
+     * Check that the controller returns a response.
+     */
+    public function testGameResponse()
+    {
+        $controller = new Yatzy();
+
+        $exp = "\Psr\Http\Message\ResponseInterface";
+        $res = $controller->game();
+        $this->assertInstanceOf($exp, $res);
+    }
+
+    /**
+     * Check that the controller returns a response.
+     */
+    public function testTrueRollInArray()
+    {
+        $controller = new Yatzy();
+
+        $_SESSION = [
+            "check" => [true, false, false, false, false]
+        ];
+
+        $res = $controller->roll();
+        $this->assertNotEmpty($res["dh"]);
+        $this->assertNotNull($res["summa"]);
+        $this->assertEquals($_SESSION["rollCounter"], 2);
+    }
+
+    /**
+     * Check that the controller returns a response.
+     */
+    public function testBonus()
+    {
+        $controller = new Yatzy();
+
+        $_SESSION = [
+            "summa" => 62,
+            "bonus" => 0,
+        ];
+
+        $controller->bonus();
+        $res = $_SESSION["bonus"];
+        $exp = 0;
+
+        $this->assertEquals($res, $exp);
+        
+        $_SESSION = [
+            "summa" => 63
+        ];
+
+        $controller->bonus();
+        $res = $_SESSION["bonus"];
+        $exp = 50;
+        $this->assertEquals($res, $exp);
     }
 }

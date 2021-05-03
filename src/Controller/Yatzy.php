@@ -93,6 +93,9 @@ class Yatzy
 
     public function firstRoll(): array
     {
+        // Checking so Session has everything needed
+        $_SESSION["diceHand"] = $_SESSION["diceHand"] ?? new DiceHand();
+        $_SESSION["summa"] = $_SESSION["summa"] ?? 0;
         $data = [
             "roll" => true,
         ];
@@ -111,13 +114,24 @@ class Yatzy
 
     public function roll(): array
     {
+        // Checking so Session has everything needed
+        $_SESSION["diceHand"] = $_SESSION["diceHand"] ?? new DiceHand();
+        $_SESSION["summa"] = $_SESSION["summa"] ?? 0;
+        $_SESSION["sum"] = $_SESSION["sum"] ?? 0;
+        $_SESSION["check"] = $_SESSION["check"] ?? null;
+        $_SESSION["rollCounter"] = $_SESSION["rollCounter"] ?? 1;
+
+        // Set roll to true for view
         $data = [
             "roll" => true,
         ];
+
         // Check if selected
         $this->selection();
+
         // Check if bonus
         $this->bonus();
+
         // Checkbox array to see what needs to be rolled
         $trueRoll = $this->trueRoll();
         if (in_array(true, $trueRoll)) {
@@ -125,6 +139,7 @@ class Yatzy
         }
         $data["dh"] = $_SESSION["diceHand"]->getHand();
         $_SESSION["sum"] += (int)$_SESSION["diceHand"]->getSum();
+
         // add player rolls
         $_SESSION["rollCounter"] += 1;
         $data["summa"] = $_SESSION["summa"];
