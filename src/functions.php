@@ -93,9 +93,9 @@ function renderTwigView(
 //     http_response_code($status);
 //     echo $body;
 // }
-//
-//
-//
+
+
+
 // /**
 //  * Redirect to an url.
 //  *

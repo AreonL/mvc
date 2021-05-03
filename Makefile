@@ -14,7 +14,10 @@ all:
 clean:
 	rm -rf build .phpunit.result.cache
 
-clean-all: clean
+clean-cache:
+	rm -rf cache/*/*
+
+clean-all:
 	rm -rf .bin vendor composer.lock
 
 install: install-php-tools
