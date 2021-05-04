@@ -144,7 +144,7 @@ class ControllerYatzyTest extends TestCase
         $exp = 0;
 
         $this->assertEquals($res, $exp);
-        
+
         $_SESSION = [
             "summa" => 63
         ];
@@ -162,22 +162,22 @@ class ControllerYatzyTest extends TestCase
     {
         $controller = new Yatzy();
 
-        $res = $this->SelectionNumbers("1", $controller);
+        $res = $this->selectionNumbers("1", $controller);
         $this->assertNotNull($res);
 
-        $res = $this->SelectionNumbers("2", $controller);
+        $res = $this->selectionNumbers("2", $controller);
         $this->assertNotNull($res);
 
-        $res = $this->SelectionNumbers("3", $controller);
+        $res = $this->selectionNumbers("3", $controller);
         $this->assertNotNull($res);
 
-        $res = $this->SelectionNumbers("4", $controller);
+        $res = $this->selectionNumbers("4", $controller);
         $this->assertNotNull($res);
 
-        $res = $this->SelectionNumbers("5", $controller);
+        $res = $this->selectionNumbers("5", $controller);
         $this->assertNotNull($res);
 
-        $res = $this->SelectionNumbers("6", $controller);
+        $res = $this->selectionNumbers("6", $controller);
         $this->assertNotNull($res);
 
         $exp = ["0", "1", "2", "3", "4"];
@@ -187,7 +187,7 @@ class ControllerYatzyTest extends TestCase
     /**
      * Mehod for testSelection
      */
-    public function SelectionNumbers($number, $controller) 
+    public function selectionNumbers($number, $controller)
     {
         $_SESSION = [
             "selection" => [(string)$number]

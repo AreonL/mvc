@@ -10,14 +10,11 @@ use AreonL\Dice\{
     DiceHand,
     DiceGraphic
 };
-
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Psr\Http\Message\ResponseInterface;
 
 use function Mos\Functions\{
-    redirectTo,
     renderView,
-    sendResponse,
     url
 };
 

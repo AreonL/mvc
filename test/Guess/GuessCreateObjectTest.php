@@ -102,7 +102,7 @@ class GuessCreateObjectTest extends TestCase
 
         $this->expectException(GuessException::class);
 
-        $res = $guess->makeGuess(200);
-        $res = $guess->makeGuess(0);
+        $guess->makeGuess(200);
+        $guess->makeGuess(0);
     }
 }

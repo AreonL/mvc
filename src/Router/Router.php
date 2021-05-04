@@ -18,6 +18,7 @@
 /**
  * Class Router.
  */
+
 // class Router
 // {
 //     public static function dispatch(string $method, string $path): void

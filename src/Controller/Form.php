@@ -37,5 +37,4 @@ class Form extends ControllerBase
 
         return $this->redirectResponse(url("/form/view"));
     }
-    
 }

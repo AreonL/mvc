@@ -30,13 +30,13 @@ class Yatzy
     {
         $roll = $_SESSION["roll"] ?? null;
         $firstRoll = $_SESSION["firstRoll"] ?? null;
-        if ($firstRoll) :
+        if ($firstRoll) {
             $data = $this->firstRoll();
-        elseif ($roll) :
+        } elseif ($roll) {
             $data = $this->roll();
-        else :
+        } else { // Setup will run if I remove this
             $data = $this->setup();
-        endif;
+        }
         $body = renderView("layout/yatzy.php", $data);
         return $this->response($body);
     }
@@ -151,7 +151,8 @@ class Yatzy
         $trueRoll = [false, false, false, false, false];
         $check = $_SESSION["check"];
         if ($check) {
-            for ($i = 0; $i < count($check); $i++) {
+            $len = sizeof($check);
+            for ($i = 0; $i < $len; $i++) {
                 $trueRoll[$check[$i]] = true;
             }
         }

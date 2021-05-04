@@ -1,0 +1,1 @@
+C:\Users\Anxiety\dbwebb-kurser\mvc\me\game\src\Controller\Yatzy.php:37	The method index uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.

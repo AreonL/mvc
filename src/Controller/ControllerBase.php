@@ -38,13 +38,12 @@ class ControllerBase
 
     protected function redirectResponse(
         string $url,
-        int $status = 301,
-        string $body = null
+        int $status = 301
     ): ResponseInterface {
         $psr17Factory = new Psr17Factory();
 
         return $psr17Factory
             ->createResponse($status)
-            ->withHeader("Location", $url, $body);
+            ->withHeader("Location", $url);
     }
 }

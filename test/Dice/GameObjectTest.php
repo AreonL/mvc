@@ -38,7 +38,7 @@ class GameObjectTest extends TestCase
     {
         $game = new Game();
         $this->assertInstanceOf("\AreonL\Dice\Game", $game);
-        
+
         $game->setUp();
         $exp = "\Psr\Http\Message\ResponseInterface";
         $res = $game->playGame();
@@ -49,7 +49,7 @@ class GameObjectTest extends TestCase
     {
         $game = new Game();
         $this->assertInstanceOf("\AreonL\Dice\Game", $game);
-        
+
         $game->setUp();
         $_SESSION["dices"] = "2";
         $exp = "\Psr\Http\Message\ResponseInterface";
@@ -61,7 +61,7 @@ class GameObjectTest extends TestCase
     {
         $game = new Game();
         $this->assertInstanceOf("\AreonL\Dice\Game", $game);
-        
+
         $game->setUp();
         $_SESSION["sum"] = 21;
         $game->checkScore();
@@ -80,7 +80,7 @@ class GameObjectTest extends TestCase
     {
         $game = new Game();
         $this->assertInstanceOf("\AreonL\Dice\Game", $game);
-        
+
         $game->setUp();
 
         $exp = "\Psr\Http\Message\ResponseInterface";
@@ -92,7 +92,7 @@ class GameObjectTest extends TestCase
     {
         $game = new Game();
         $this->assertInstanceOf("\AreonL\Dice\Game", $game);
-        
+
         $game->setUp();
 
         $_SESSION["testSum"] = -1;
@@ -112,7 +112,7 @@ class GameObjectTest extends TestCase
     {
         $game = new Game();
         $this->assertInstanceOf("\AreonL\Dice\Game", $game);
-        
+
         $game->setUp();
 
         $exp = "\Psr\Http\Message\ResponseInterface";

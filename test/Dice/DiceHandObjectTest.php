@@ -128,7 +128,6 @@ class DiceHandObjectTest extends TestCase
     {
         $diceHand = new DiceHand();
         $dice = new DiceCheat();
-        $dice2 = new Dice();
         $this->assertInstanceOf("\AreonL\Dice\DiceHand", $diceHand);
 
         $diceHand->addDice($dice);
