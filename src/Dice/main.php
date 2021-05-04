@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require __DIR__ . "/../../vendor/autoload.php";
+// require __DIR__ . "/../../vendor/autoload.php";
 
 
 use AreonL\Dice\{
@@ -23,11 +23,11 @@ use AreonL\Dice\{
 // $hand->roll();
 // echo $hand->getHand();
 
-$hand = new DiceHand();
+// $hand = new DiceHand();
 
-$hand->addDice(new Dice());
-$hand->addDice(new DiceGraphic());
-$hand->addDice(new DiceCheat());
+// $hand->addDice(new Dice());
+// $hand->addDice(new DiceGraphic());
+// $hand->addDice(new DiceCheat());
 
-$hand->roll();
+// $hand->roll();
 // echo $hand->getHand();

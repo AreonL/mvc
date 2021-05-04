@@ -15,9 +15,9 @@ use function Mos\Functions\{
 /**
  * Controller for the session routes.
  */
-class Session // extends ControllerBase
+class Session extends ControllerBase
 {
-    use ControllerTrait;
+    // use ControllerTrait;
 
     public function index(): ResponseInterface
     {

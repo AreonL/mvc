@@ -28,8 +28,8 @@ $computerSum = $computerSum ?? null;
 
 $cWin = $cWin ?? null;
 $cLose = $cLose ?? null;
-$lose = $lose ?? null;
-$win = $win ?? null;
+$lose = $_SESSION["checkLose"] ?? null;
+$win = $_SESSION["checkWin"] ?? null;
 ?>
 
 <?php if ($win or $cLose) : ?>

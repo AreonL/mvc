@@ -161,8 +161,12 @@ class Yatzy
 
     public function selection(): void
     {
+        // Add session if not exsists
+        $_SESSION["summa"] = $_SESSION["summa"] ?? 0;
+        $_SESSION["diceHand"] = $_SESSION["diceHand"] ?? new DiceHand();
+
         $selection = $_SESSION["selection"][0] ?? null;
-        $sumNumber = $_SESSION["diceHand"]->getSumNumber((int)$selection);
+        $sumNumber = $_SESSION["diceHand"]->getSumNumber((int)$selection) ?? 0;
         if ($selection == "1") {
             $_SESSION["select1"] = $sumNumber;
         }

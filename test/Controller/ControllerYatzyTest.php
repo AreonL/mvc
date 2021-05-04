@@ -154,4 +154,45 @@ class ControllerYatzyTest extends TestCase
         $exp = 50;
         $this->assertEquals($res, $exp);
     }
+
+    /**
+     * Check that the controller returns a response.
+     */
+    public function testSelection()
+    {
+        $controller = new Yatzy();
+
+        $res = $this->SelectionNumbers("1", $controller);
+        $this->assertNotNull($res);
+
+        $res = $this->SelectionNumbers("2", $controller);
+        $this->assertNotNull($res);
+
+        $res = $this->SelectionNumbers("3", $controller);
+        $this->assertNotNull($res);
+
+        $res = $this->SelectionNumbers("4", $controller);
+        $this->assertNotNull($res);
+
+        $res = $this->SelectionNumbers("5", $controller);
+        $this->assertNotNull($res);
+
+        $res = $this->SelectionNumbers("6", $controller);
+        $this->assertNotNull($res);
+
+        $exp = ["0", "1", "2", "3", "4"];
+        $this->assertEquals($_SESSION["check"], $exp);
+    }
+
+    /**
+     * Mehod for testSelection
+     */
+    public function SelectionNumbers($number, $controller) 
+    {
+        $_SESSION = [
+            "selection" => [(string)$number]
+        ];
+        $controller->selection();
+        return $_SESSION["select" . (string)$number];
+    }
 }

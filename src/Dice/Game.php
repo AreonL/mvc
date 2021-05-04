@@ -11,6 +11,9 @@ use AreonL\Dice\{
     DiceGraphic
 };
 
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Psr\Http\Message\ResponseInterface;
+
 use function Mos\Functions\{
     redirectTo,
     renderView,
@@ -26,7 +29,7 @@ use function Mos\Functions\{
  */
 class Game
 {
-    public function setUp(): void
+    public function setUp(): ResponseInterface
     {
         $data = [
             "header" => "Game 21",
@@ -39,13 +42,17 @@ class Game
         $_SESSION["pScore"] = 0;
         $_SESSION["cScore"] = 0;
         $body = renderView("layout/dice.php", $data);
-        sendResponse($body);
+        $psr17Factory = new Psr17Factory();
+        return $psr17Factory
+            ->createResponse(200)
+            ->withBody($psr17Factory->createStream($body));
     }
 
-    public function playGame(): void
+    public function playGame(): ResponseInterface
     {
+        $_SESSION["dices"] = $_SESSION["dices"] ?? null;
         $data = [
-            "dices" => $_SESSION["dices"] ?? null,
+            "dices" => $_SESSION["dices"],
         ];
         if (!$_SESSION["win"] and !$_SESSION["lose"]) :
             $diceHand = new DiceHand();
@@ -56,26 +63,33 @@ class Game
             $data["dh"] = $diceHand->getHand();
             $_SESSION["sum"] += (int)$diceHand->getSum();
             // Check player sum after roll
-            if ($_SESSION["sum"] == 21) {
-                $data = [
-                    "win" => "win",
-                ];
-                $_SESSION["pScore"] += 1;
-            } elseif ($_SESSION["sum"] > 21) {
-                $data = [
-                "lose" => "lose",
-                ];
-                $_SESSION["cScore"] += 1;
-            }
+            $this->checkScore();
         endif;
         $body = renderView("layout/dice.php", $data);
-        sendResponse($body);
+        $psr17Factory = new Psr17Factory();
+        return $psr17Factory
+            ->createResponse(200)
+            ->withBody($psr17Factory->createStream($body));
+    }
+
+
+    public function checkScore(): void
+    {
+        $sum = $_SESSION["sum"] ?? 0;
+        if ($sum == 21) {
+            $_SESSION["checkWin"] = "win";
+            $_SESSION["pScore"] += 1;
+        } elseif ($sum > 21) {
+            $_SESSION["checkLose"] = "lose";
+            $_SESSION["cScore"] += 1;
+        }
     }
 
     private bool $noWin;
     private int $sum;
-    public function end(): void
+    public function end(): ResponseInterface
     {
+        $_SESSION["testSum"] = $_SESSION["testSum"] ?? 0;
         $data = [
             "dices" => $_SESSION["dices"] ?? null,
         ];
@@ -93,8 +107,9 @@ class Game
             $this->sum += (int)$diceHand->getSum();
             $data["computerSum"] += (int)$diceHand->getSum();
             if (
-                $this->sum == $_SESSION["sum"] or $this->sum == 21
-                or ($this->sum > $_SESSION["sum"] and $this->sum < 21)
+                ($this->sum == $_SESSION["sum"] or $this->sum == 21
+                or ($this->sum > $_SESSION["sum"] and $this->sum < 21))
+                and $_SESSION["testSum"] != -1
             ) :
                 $data["cWin"] = "cWin";
                 $_SESSION["cScore"] += 1;
@@ -107,10 +122,13 @@ class Game
         endwhile;
         $data["getComputer"] = substr($data["getComputer"], 0, -2);
         $body = renderView("layout/dice.php", $data);
-        sendResponse($body);
+        $psr17Factory = new Psr17Factory();
+        return $psr17Factory
+            ->createResponse(200)
+            ->withBody($psr17Factory->createStream($body));
     }
 
-    public function redo(): void
+    public function redo(): ResponseInterface
     {
         $data = [
             "header" => "Game 21",
@@ -123,6 +141,9 @@ class Game
         $_SESSION["redo"] = null;
         $_SESSION["output"] = null;
         $body = renderView("layout/dice.php", $data);
-        sendResponse($body);
+        $psr17Factory = new Psr17Factory();
+        return $psr17Factory
+            ->createResponse(200)
+            ->withBody($psr17Factory->createStream($body));
     }
 }

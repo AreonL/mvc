@@ -41,8 +41,8 @@ class DiceHand
             if ($trueDice[$i]) :
                 $this->dices[$i]->roll();
                 $this->text .= $this->dices[$i]->getLastRoll() . ", ";
-            $this->sum += $this->dices[$i]->getLastRoll();
             endif;
+            $this->sum += $this->dices[$i]->getLastRoll();
         }
     }
 
